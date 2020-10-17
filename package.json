@@ -18,5 +18,13 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "nodemon": "^2.0.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilhenc36/Interes-Compuesto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wilhenc36/Interes-Compuesto/issues"
+  },
+  "homepage": "https://github.com/wilhenc36/Interes-Compuesto#readme"
 }

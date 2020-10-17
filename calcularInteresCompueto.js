@@ -1,32 +1,40 @@
 exports.calcularInteresCompuesto = (capital, tasaInteres, periodo) => {
-  let deposito = 0;
-  let interes = 0;
-  let capital2 = 0;
-  const cuotas = [];
+  if (
+    (capital >= 0 || capital < 0) &&
+    (tasaInteres >= 0 || tasaInteres < 0) &&
+    (periodo >= 0 || periodo < 0)
+  ) {
+    capital = Number.parseFloat(capital);
+    tasaInteres = Number.parseFloat(tasaInteres);
+    periodo = Number.parseFloat(periodo);
 
-  cuotas[0] = {
-    Periodo: 1,
-    Depositos: capital,
-    Interes: 0,
-    Saldo: capital,
-  };
+    let interes = 0;
+    const cuotas = [];
 
-  // Calcular la tasa de interes en decimal
-  tasaInteres = tasaInteres / 100;
-  Number.parseFloat(capital);
-
-  for (let i = 0; i < periodo; i++) {
-    interes = capital * tasaInteres;
-    Number.parseFloat(interes);
-    capital = Number.parseFloat(capital) + Number.parseFloat(interes);
-
-    cuotas[i + 1] = {
-      Periodo: i + 2,
-      Depositos: Number.parseFloat(deposito.toFixed(2)),
-      Interes: Number.parseFloat(interes.toFixed(2)),
-      Saldo: Number.parseFloat(capital.toFixed(2)),
+    cuotas[0] = {
+      Periodo: 1,
+      Depositos: capital,
+      Interes: "----------------",
+      Saldo: capital,
     };
-  }
 
-  return cuotas;
+    // Calcular la tasa de interes en decimal
+    tasaInteres = tasaInteres / 100;
+
+    for (let i = 1; i <= periodo; i++) {
+      interes = capital * tasaInteres;
+      capital += interes;
+
+      cuotas[i] = {
+        Periodo: i + 1,
+        Depositos: " ",
+        Interes: interes.toFixed(2),
+        Saldo: capital.toFixed(2),
+      };
+    }
+
+    return cuotas;
+  } else {
+    return false;
+  }
 };

@@ -2,8 +2,11 @@
 
 // Importar express
 const express = require("express");
+// Importar handlebar como template engine
 const exphbs = require("express-handlebars");
+// Importar body parser que nos permite acceder al cuerpo de la peticion HTTP
 const bodyParser = require("body-parser");
+// Importar la funcion de calculo del interes compuesto
 const { calcularInteresCompuesto } = require("./calcularInteresCompueto");
 
 // Crear un servidor
@@ -23,21 +26,17 @@ app.get("/", (req, res, next) => {
   res.render("formulario");
 });
 
-// Crear una ruta para /carrito
+// Crear una ruta para /interes
 app.post("/interes", (req, res, next) => {
   // Asignacion por distructuring
   const { monto, tasaInteres, periodo } = req.body;
 
   const cuotas = calcularInteresCompuesto(monto, tasaInteres, periodo);
 
-  if (
-    Number.isInteger(monto) &&
-    Number.isInteger(tasaInteres) &&
-    Number.isInteger(periodo)
-  ) {
-    res.render("resultado", { cuotas, tasaInteres });
-  } else {
+  if (!cuotas) {
     res.render("error");
+  } else {
+    res.render("resultado", { cuotas, tasaInteres });
   }
 });
 
