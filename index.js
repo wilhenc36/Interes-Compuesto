@@ -6,6 +6,8 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 // Importar body parser que nos permite acceder al cuerpo de la peticion HTTP
 const bodyParser = require("body-parser");
+
+const path = require("path");
 // Importar la funcion de calculo del interes compuesto
 const { calcularInteresCompuesto } = require("./calcularInteresCompueto");
 
@@ -16,6 +18,8 @@ const app = express();
 app.engine("hbs", exphbs({ defaultLayout: "main", extname: ".hbs" }));
 
 app.set("view engine", "hbs");
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // Habilitar body parser para leer los datos del cuerpo de las peticions POST
 app.use(bodyParser.urlencoded({ extended: true }));
