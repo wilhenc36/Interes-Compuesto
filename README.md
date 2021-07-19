@@ -1,11 +1,9 @@
-## Interes Compuesto
+# Interes Compuesto - Empezando con NodeJS
 
-Este programa calcula el interes compuesto dado
-el capital inicial, la tasa de interes anual y el
-plazo
+Puedes ver la demo aqui: https://interescompuesto.herokuapp.com/
 
-Recordar instalar los paquetes de Node
+Este programa calcula el interes compuesto dado el capital inicial, la tasa de interes anual y el plazo.
 
-```
-npm install
-```
+No olvides instalar los paquetes de Node
+
+### `npm install`
