@@ -4,14 +4,12 @@
   "description": "Este programa hace tal cosa",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./index.js",
-    "start": "nodemon ./index.js"
+    "start": "node ./index.js"
   },
   "keywords": [
     "express",
-    "handlebars",
-    "examen"
+    "handlebars"
   ],
   "author": "Wilhen Cruz",
   "license": "ISC",
