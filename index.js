@@ -11,6 +11,9 @@ const path = require("path");
 // Importar la funcion de calculo del interes compuesto
 const { calcularInteresCompuesto } = require("./calcularInteresCompueto");
 
+//Habilitar el archivo de variables de entorno
+require("dotenv").config({ path: ".env" });
+
 // Crear un servidor
 const app = express();
 
@@ -45,6 +48,9 @@ app.post("/interes", (req, res, next) => {
 });
 
 // Inicializar el servidor en un puerto en especifico
-app.listen(5000, () => {
-  console.log("Servidor ejecutandose en el puerto 5000");
+const host = "0.0.0.0";
+const port = process.env.PORT;
+
+app.listen(port, host, () => {
+  console.log(`Servidor ejecutandose en el puerto ${port}`);
 });
